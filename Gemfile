@@ -11,6 +11,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'rails_12factor', group: :production
 gem 'pg', group: :prodution
+gem 'carrierwave'
+gem 'fog'
+gem 'figaro', '~> 1.0.0'
+
 
 group :doc do
   gem 'sdoc', require: false
