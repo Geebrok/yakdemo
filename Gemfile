@@ -14,6 +14,7 @@ gem 'pg', group: :prodution
 gem 'carrierwave'
 gem 'fog'
 gem 'figaro', '~> 1.0.0'
+gem "mini_magick"
 
 
 group :doc do
