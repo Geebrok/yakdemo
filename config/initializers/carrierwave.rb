@@ -1,8 +1,8 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
     :provider               => 'AWS',                        # required
-    :aws_access_key_id      => 'AKIAIQFUGJ7GFE2YRQKA',                        # required
-    :aws_secret_access_key  => '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',                        # required
+    :aws_access_key_id      => ENV["aws_access_key_id"],                        # required
+    :aws_secret_access_key  => ENV["aws_secret_access_key"],                        # required
   }
-  config.fog_directory  = 'yakdemo'                          # required
+  config.fog_directory  = ENV["fog_directory"]                          # required
 end
