@@ -1,4 +1,6 @@
 Yakdemo::Application.routes.draw do
+  resources :reviews
+
   devise_for :users
   resources :restaurants
 
