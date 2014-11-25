@@ -1,5 +1,4 @@
-Yakdemo::Application.routes.draw do
-  
+Yakdemo::Application.routes.draw do  
 
   devise_for :users
   resources :restaurants do
