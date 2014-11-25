@@ -10,10 +10,8 @@
       </ul>
     </div>
   <% end %>
-    <div class="form-group">
-      <%= f.label :rating %>
-      <%= f.number_field :rating, class: "form-control" %>
-    </div>
+
+    <div id="star-rating"></div>
 
     <div class="form-group">
       <%= f.label :comment %>
@@ -23,4 +21,12 @@
     <div class="form-group">
       <%= f.submit class: "btn btn-primary" %>
     </div>
+
+<script>
+  $('#star-rating').raty({
+    path: 'https://s3.amazonaws.com/yakdemo/stars',
+    scoreName: 'review[rating]'
+  });
+</script>
+
 <% end %>
