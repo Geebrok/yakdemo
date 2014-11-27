@@ -24,7 +24,8 @@
 		  <%= link_to @restaurant.website, @restaurant.website %>
 		</p>
 
-		<%= link_to 'Write a Review', new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+		<%= link_to 'Write a Review', new_restaurant_review_path(@restaurant), class: "btn btn-primary" %></br>
+		<%= link_to 'Back', root_path, class: "btn btn-link" %>
 
 	</div>
 
@@ -44,17 +45,20 @@
 					<% @reviews.each do |review| %>
 						<tr>
 							<td>
-								<div class="star-rating", data-score= <%= review.rating %> ></div>
-								<p>Reviewer</p>
-								<h4>
-									<%= "#{review.user.first_name.capitalize} #{review.user.last_name.capitalize[0]}." %>
-								</h4>
+								<div class="star-rating", data-score= <%= review.rating %> ></div></br>							
 								<p><%= review.created_at.strftime("%-d/%-m/%-y") %></p>
-								<p><%= review.created_at.strftime("%l:%M %P") %></p>															
+								<p><%= review.created_at.strftime("%l:%M %P") %></p>								
 							</td>
 
 							<td>
-								<p> <%= h(review.comment).gsub(/\n/, '<br/>').html_safe %> </p>											
+								<strong><h4><%= "#{review.user.first_name.capitalize} #{review.user.last_name.capitalize[0]}." %></h4></strong>
+								<p> <%= h(review.comment).gsub(/\n/, '<br/>').html_safe %> </p>
+								<% if user_signed_in? %>
+									<% if (review.user == current_user) || (current_user.admin?) %>
+										<%= link_to "Edit", edit_restaurant_review_path(@restaurant, review), class: "btn btn-link" %>
+										<%= link_to "Delete", restaurant_review_path(@restaurant, review), method: :delete, class: "btn btn-link" %>
+									<% end %>
+								<% end %>											
 							</td>
 						</tr>
 					<% end %>
@@ -63,9 +67,6 @@
 		<% end %>
 	</div>
 </div>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link" %> |
-<%= link_to 'Back', restaurants_path, class: "btn btn-link" %>
 
 <script>
   $('.star-rating').raty({
