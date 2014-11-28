@@ -7,7 +7,19 @@
 		</h2>
 
 		<div class="star-rating", data-score= <%= @avg_rating %> ></div></br>
-		<p><%= "#{@reviews.length} reviews" %></p>
+		
+
+			
+		<p>
+			<% if (@reviews.length) == 1 %>
+				<%= "#{@reviews.length} review" %>
+			<% else %>
+				<%= "#{@reviews.length} reviews" %>
+			<% end %>
+		</p>
+
+
+		
 
 		<p>
 		  <strong>Address:</strong>
