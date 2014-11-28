@@ -27,6 +27,17 @@
 		<%= link_to 'Write a Review', new_restaurant_review_path(@restaurant), class: "btn btn-primary" %></br>
 		<%= link_to 'Back', root_path, class: "btn btn-link" %>
 
+
+	</br>
+
+		<iframe
+			width="300"
+			height="300"
+			frameborder="0" style="border:0"
+			src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBL1EaDyB9xt3n3E6luB21Nl9FFAdcsVOU&q=<%= @restaurant.address.parameterize %>">
+		</iframe></br>
+
+		</br>
 	</div>
 
 	<div class="col-md-8">
@@ -59,7 +70,7 @@
 										<%= link_to "Delete", restaurant_review_path(@restaurant, review), method: :delete, class: "btn btn-link" %>
 									<% end %>
 								<% end %>											
-							</td>
+							</td>						
 						</tr>
 					<% end %>
 				</tbody>

@@ -20,10 +20,12 @@
         <td><%= restaurant.address %></td>
         <td><%= restaurant.phone %></td>
         <td><%= link_to restaurant.website, restaurant.website %></td>
+
         <% if user_signed_in? && current_user.admin? %>             
           <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-link" %></td>
           <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>            
-        <% end %>        
+        <% end %>
+        
       </tr>
     <% end %>
   </tbody>
