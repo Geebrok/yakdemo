@@ -54,7 +54,7 @@
 
 	<div class="col-md-8">
 		<% if @reviews.blank? %>
-			<h3>No reviews yet. Be the first</h3>
+			<h3>Be the first to review <%= (@restaurant.name) %></h3>
 		<% else %>
 			<table class="table">
 				<thead>
